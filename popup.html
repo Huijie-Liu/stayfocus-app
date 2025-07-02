@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayFocus - 专注助手</title>
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#4F46E5" stroke-width="2"/>
+                    <path d="M12 6v6l4 2" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>StayFocus</h1>
+            </div>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">已关闭</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="focus-mode-section">
+                <div class="section-header">
+                    <h2>专注模式</h2>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="focusModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="timer-section" id="timerSection">
+                    <div class="timer-display">
+                        <span id="timerDisplay">25:00</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="startTimer">开始专注</button>
+                        <button class="btn btn-secondary" id="pauseTimer" style="display: none;">暂停</button>
+                        <button class="btn btn-secondary" id="resetTimer">重置</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blocked-sites-section">
+                <div class="section-header">
+                    <h3>屏蔽网站</h3>
+                    <button class="btn btn-small" id="addSiteBtn">+ 添加</button>
+                </div>
+                <div class="sites-list" id="sitesList">
+                    <div class="site-item">
+                        <span class="site-url">facebook.com</span>
+                        <button class="remove-btn" data-site="facebook.com">×</button>
+                    </div>
+                    <div class="site-item">
+                        <span class="site-url">twitter.com</span>
+                        <button class="remove-btn" data-site="twitter.com">×</button>
+                    </div>
+                    <div class="site-item">
+                        <span class="site-url">youtube.com</span>
+                        <button class="remove-btn" data-site="youtube.com">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-site-form" id="addSiteForm" style="display: none;">
+                <input type="text" id="newSiteInput" placeholder="输入网站域名 (例如: example.com)">
+                <div class="form-actions">
+                    <button class="btn btn-primary" id="confirmAddSite">确认</button>
+                    <button class="btn btn-secondary" id="cancelAddSite">取消</button>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>今日统计</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="focusTime">2h 15m</span>
+                        <span class="stat-label">专注时间</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="blockedAttempts">12</span>
+                        <span class="stat-label">拦截次数</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <button class="btn btn-link" id="settingsBtn">设置</button>
+            <button class="btn btn-link" id="helpBtn">帮助</button>
+        </footer>
+    </div>
+
+    <script src="js/popup.js"></script>
+</body>
+</html>
+

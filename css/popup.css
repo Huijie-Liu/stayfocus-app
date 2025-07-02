@@ -1,0 +1,384 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    width: 380px;
+    min-height: 500px;
+}
+
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 8px;
+}
+
+/* 头部样式 */
+.header {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.logo svg {
+    stroke: white;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #EF4444;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.active {
+    background: #10B981;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* 主要内容 */
+.main-content {
+    padding: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.section-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+/* 切换开关 */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CBD5E1;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: #4F46E5;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* 计时器部分 */
+.timer-section {
+    background: #F8FAFC;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.timer-display {
+    font-size: 32px;
+    font-weight: 700;
+    color: #4F46E5;
+    margin-bottom: 16px;
+    font-family: 'Courier New', monospace;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* 按钮样式 */
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #4F46E5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #4338CA;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #E5E7EB;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #D1D5DB;
+}
+
+.btn-small {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.btn-link {
+    background: none;
+    color: #6B7280;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.btn-link:hover {
+    color: #4F46E5;
+}
+
+/* 屏蔽网站部分 */
+.blocked-sites-section {
+    margin-bottom: 24px;
+}
+
+.sites-list {
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+}
+
+.site-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #F3F4F6;
+    transition: background-color 0.2s;
+}
+
+.site-item:last-child {
+    border-bottom: none;
+}
+
+.site-item:hover {
+    background: #F9FAFB;
+}
+
+.site-url {
+    font-size: 14px;
+    color: #374151;
+}
+
+.remove-btn {
+    background: #EF4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.remove-btn:hover {
+    background: #DC2626;
+    transform: scale(1.1);
+}
+
+/* 添加网站表单 */
+.add-site-form {
+    background: #F8FAFC;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.add-site-form input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.add-site-form input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* 统计部分 */
+.stats-section {
+    margin-bottom: 16px;
+}
+
+.stats-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 12px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat-item {
+    background: #F8FAFC;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4F46E5;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #6B7280;
+}
+
+/* 底部 */
+.footer {
+    background: #F8FAFC;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #E5E7EB;
+}
+
+/* 滚动条样式 */
+.sites-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sites-list::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+
+.sites-list::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 2px;
+}
+
+.sites-list::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+}
+
+/* 响应式设计 */
+@media (max-width: 400px) {
+    body {
+        width: 100%;
+    }
+    
+    .container {
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .timer-controls {
+        flex-direction: column;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayFocus - 设置</title>
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#4F46E5" stroke-width="2"/>
+                    <path d="M12 6v6l4 2" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <h1>StayFocus 设置</h1>
+                    <p>配置专注助手</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="settings-section">
+                <h2>基本设置</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>启动时自动启用专注模式</h3>
+                        <p>浏览器启动时自动开启专注模式</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoStart">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>显示屏蔽通知</h3>
+                        <p>当网站被屏蔽时显示桌面通知</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="showNotifications">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>严格模式</h3>
+                        <p>启用后无法临时关闭专注模式</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="strictMode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>计时器设置</h2>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>默认专注时间</h3>
+                        <p>设置每次专注的默认时长</p>
+                    </div>
+                    <select id="defaultFocusTime" class="select-input">
+                        <option value="15">15 分钟</option>
+                        <option value="25" selected>25 分钟</option>
+                        <option value="30">30 分钟</option>
+                        <option value="45">45 分钟</option>
+                        <option value="60">60 分钟</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>休息时间</h3>
+                        <p>专注结束后的休息时长</p>
+                    </div>
+                    <select id="breakTime" class="select-input">
+                        <option value="5" selected>5 分钟</option>
+                        <option value="10">10 分钟</option>
+                        <option value="15">15 分钟</option>
+                        <option value="20">20 分钟</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>自动开始下一轮</h3>
+                        <p>休息结束后自动开始下一轮专注</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoNextRound">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>屏蔽网站管理</h2>
+                
+                <div class="sites-management">
+                    <div class="add-site-section">
+                        <input type="text" id="newSiteInput" placeholder="输入网站域名 (例如: example.com)" class="text-input">
+                        <button id="addSiteBtn" class="btn btn-primary">添加网站</button>
+                    </div>
+                    
+                    <div class="sites-list-container">
+                        <h3>已屏蔽的网站</h3>
+                        <div class="sites-list" id="sitesList">
+                            <!-- 网站列表将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <div class="preset-sites">
+                        <h3>常用网站模板</h3>
+                        <div class="preset-categories">
+                            <div class="preset-category">
+                                <h4>社交媒体</h4>
+                                <div class="preset-buttons">
+                                    <button class="btn btn-small preset-btn" data-sites="facebook.com,twitter.com,instagram.com,tiktok.com">添加全部</button>
+                                </div>
+                                <div class="preset-list">
+                                    <span>Facebook, Twitter, Instagram, TikTok</span>
+                                </div>
+                            </div>
+                            
+                            <div class="preset-category">
+                                <h4>视频娱乐</h4>
+                                <div class="preset-buttons">
+                                    <button class="btn btn-small preset-btn" data-sites="youtube.com,bilibili.com,netflix.com,twitch.tv">添加全部</button>
+                                </div>
+                                <div class="preset-list">
+                                    <span>YouTube, Bilibili, Netflix, Twitch</span>
+                                </div>
+                            </div>
+                            
+                            <div class="preset-category">
+                                <h4>新闻资讯</h4>
+                                <div class="preset-buttons">
+                                    <button class="btn btn-small preset-btn" data-sites="reddit.com,zhihu.com,weibo.com,douban.com">添加全部</button>
+                                </div>
+                                <div class="preset-list">
+                                    <span>Reddit, 知乎, 微博, 豆瓣</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>数据统计</h2>
+                
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <h3>今日专注时间</h3>
+                        <div class="stat-value" id="todayFocusTime">0 分钟</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>本周专注时间</h3>
+                        <div class="stat-value" id="weekFocusTime">0 分钟</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>总拦截次数</h3>
+                        <div class="stat-value" id="totalBlocked">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <h3>连续专注天数</h3>
+                        <div class="stat-value" id="streakDays">0 天</div>
+                    </div>
+                </div>
+                
+                <div class="data-actions">
+                    <button id="exportDataBtn" class="btn btn-secondary">导出数据</button>
+                    <button id="resetDataBtn" class="btn btn-danger">重置所有数据</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-info">
+                <p>StayFocus v1.0.0 - 专注工作助手</p>
+                <div class="footer-links">
+                    <a href="#" id="helpLink">帮助文档</a>
+                    <a href="#" id="feedbackLink">反馈建议</a>
+                    <a href="#" id="aboutLink">关于我们</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/options.js"></script>
+</body>
+</html>
+
